@@ -1,11 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Readex+Pro:wght@300;600;700&display=swap');
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
+    font-family: 'Acme', sans-serif;
+    /* background-color: #3196af */
+}
 
  .header {
-    background-color: #f180e8;
+    background-color: #264c55;
     padding: 30px 40px;
     color: white;
     text-align: center;
@@ -13,8 +16,9 @@
   }
 .content{
     display: flex;
-    align-items: space-between;
-   
+    justify-content:space-between;
+    background-color: #264c55;
+    flex-wrap: wrap;
 }
  input {
     border: solid 1px ;
@@ -22,13 +26,14 @@
     width: 75%;
     padding: 10px;
     font-size: 16px;
+    box-shadow: #264c55;
   }
 
-.Btn {
+.btn {
     padding: 10px;
-    width: 25%;
-    background: #d9d9d9;
-    color: rgb(131, 106, 131);
+    width: 22%;
+    background: #5e8994;
+    color: white;
     text-align: center;
     font-size: 16px;
     border-radius: 15px;
@@ -37,6 +42,7 @@
   ul li {
     position: flex;
     padding: 12px 8px 12px 40px;
-    /* background: rgb(240, 204, 232); */
+    background: #5e8994;
     font-size: 20px;
+    color: white;
  } 
