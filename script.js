@@ -17,6 +17,18 @@ function addToList(e){
     newList.innerText = todoInput.value 
     todoDiv.appendChild(newList)
     
+    //create delete and edit button
+     let editBtn = document.createElement('button')
+     let delBtn = document.createElement('button')
+     // append every element and add class name 
+    editBtn.innerText="Edit";
+	editBtn.className="edit";
+	delBtn.innerText="Delete";
+	delBtn.className="delete";
+	
+	newList.appendChild(editBtn);
+	newList.appendChild(delBtn); 
+
     //call function to store in local storage
     storeData(todoInput.value)
     todoInput.value = '' // empty the list
