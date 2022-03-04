@@ -2,7 +2,7 @@
 ## ToDo App
 Todo List is an application that allowed you add, update and delete your tasks.
 
-## You can [check it out]( https://gsg-cf05.github.io/ToDo-app-hana/)
+## You can [check it out](https://gsg-cf05.github.io/ToDo-app-hana/)
 
 
 ## User can use this app by:
