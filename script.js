@@ -41,6 +41,15 @@ function storeData(ele){
     todoArr.push(ele)
     localStorage.setItem('todoArr',JSON.stringify(todoArr))
 }
+////////////////////////delete items /////////////////////
+
+// access to the delete button ... its not a fixed button
+document.addEventListener('click', check)
+function check(e){
+  if(e.target.className == 'delete') // access by class name
+  // console.log('this is the element');
+   e.target.parentNode.remove() // delete the event
+}
  // Reload code
  window.addEventListener('DOMContentLoaded', Reload)
  function Reload(){
@@ -53,5 +62,16 @@ function storeData(ele){
         let newList = document.createElement('li')
         newList.innerText = ele
         todoDiv.appendChild(newList)
-     })
+
+        //RELOAD delete and edit button
+        let editBtn = document.createElement('button')
+        let delBtn = document.createElement('button')
+        editBtn.innerText="Edit";
+        editBtn.className="edit";
+        delBtn.innerText="Delete";
+        delBtn.className="delete";
+        newList.appendChild(editBtn);
+        newList.appendChild(delBtn); 
+     }) 
+    
  } 
