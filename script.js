@@ -38,8 +38,8 @@ function addToList(e){
 
     //call function to store in local storage
     storeData(todoInput.value)
+  }
     todoInput.value = '' // empty the list
-      }  
 }
 
 let todoArr = [] 
