@@ -50,14 +50,6 @@ function storeData(ele){
 }
 
 // access to the delete button ... its not a fixed button
-// document.addEventListener('click', check)
-// function check(e){
-//   if(e.target.className == 'delete') // access by class name
-//   // console.log('this is the element');
-//    e.target.parentNode.remove() // delete the event
-// }
-/////////////////////////////////////////////////////////////////////////////////
-// access to the delete button ... its not a fixed button
 document.addEventListener('click', deleteItem)
 ///create delete function
 function deleteItem(e){
@@ -79,8 +71,8 @@ function deleteFromStorage(value){
  // Reload code
  window.addEventListener('DOMContentLoaded', Reload)
  function Reload(){
-    if(localStorage.getItem('todoArr')) {  // check the list
-        todoArr = JSON.parse(localStorage.getItem('todoArr'))
+    if(localStorage.getItem('todos')) {  // check the list
+        todoArr = JSON.parse(localStorage.getItem('todos'))
      } 
      todoArr.forEach((ele)=> {
         let todoDiv = document.createElement('div')
@@ -89,16 +81,16 @@ function deleteFromStorage(value){
         newList.innerText = ele
         todoDiv.appendChild(newList)
 
-        //RELOAD  edit button
-        let editBtn = document.createElement('button')
-        editBtn.innerText="Edit";
-        editBtn.className="edit";
-        newList.appendChild(editBtn);
-        //RELOAD  delete button
-        let delBtn = document.createElement('button')
-        delBtn.innerText="Delete";
-        delBtn.className="delete";
-        newList.appendChild(delBtn); 
+    // //RELOAD edit button
+    let editBtn = document.createElement('button')
+    editBtn.innerText="Edit";
+    editBtn.className="edit";
+    newList.appendChild(editBtn);
+    // //RELOAD delete  button
+    let delBtn = document.createElement('button')
+    delBtn.innerText="Delete";
+    delBtn.className="delete";
+    newList.appendChild(delBtn);  
      }) 
     
  } 
