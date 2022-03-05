@@ -87,5 +87,20 @@ body {
   font-size: 16px;
   border-radius: 15px;
   cursor: pointer;
- 
  }
+
+/* add media query */
+ /* ******* for tablets ******* */
+@media only screen and (min-width: 768px) and (max-width:1023){
+ .edit{
+  position: absolute; 
+  right: 200px;
+ }
+}
+/* ******for laptop & desktop****8 */
+@media screen and (min-width: 1024px) {
+  .edit{
+    position: absolute; 
+    right: 250px;
+   }
+  }  
