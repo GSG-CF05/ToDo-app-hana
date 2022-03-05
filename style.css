@@ -92,15 +92,25 @@ body {
 /* add media query */
  /* ******* for tablets ******* */
 @media only screen and (min-width: 768px) and (max-width:1023){
- .edit{
-  position: absolute; 
-  right: 200px;
- }
+  .edit{
+    position: absolute; 
+    right: 200px;
+    width: 22%; 
+  
+}
+.delete{
+  width: 22%; 
+}
 }
 /* ******for laptop & desktop****8 */
 @media screen and (min-width: 1024px) {
   .edit{
     position: absolute; 
-    right: 250px;
-   }
-  }  
+    right: 300px;
+    width: 22%; 
+  
+}
+.delete{
+  width: 22%; 
+}
+}
