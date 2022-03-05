@@ -1,13 +1,18 @@
-////////////////////////add task////////////////////////////
+///access to elements
 let todoInput = document.querySelector('.input')
 let todoList = document.querySelector('.list')
 let addBtn = document.querySelector('.btn')
 
 //add event to the button
 addBtn.addEventListener('click' , addToList)
-
+ /////////// create function add
 function addToList(e){
     e.preventDefault()
+    //check input if empty
+    if (todoInput.value === '') {
+        alert("No items to add yet ...");
+      }else{
+  
     //create div
     let todoDiv = document.createElement('div')
     todoList.appendChild(todoDiv)
@@ -17,39 +22,60 @@ function addToList(e){
     newList.innerText = todoInput.value 
     todoDiv.appendChild(newList)
     
-    //create delete and edit button
+    //create edit button and add class to it 
      let editBtn = document.createElement('button')
+     editBtn.innerText="Edit";
+     editBtn.className="edit";
+    
+     //create delete button and add class to it 
      let delBtn = document.createElement('button')
-     // append every element and add class name 
-    editBtn.innerText="Edit";
-	editBtn.className="edit";
-	delBtn.innerText="Delete";
-	delBtn.className="delete";
+	 delBtn.innerText="Delete";
+	 delBtn.className="delete";
 	
+     //append delete and edit button
 	newList.appendChild(editBtn);
 	newList.appendChild(delBtn); 
 
     //call function to store in local storage
     storeData(todoInput.value)
     todoInput.value = '' // empty the list
-   
+      }  
 }
 
 let todoArr = [] 
 // store in local storage
 function storeData(ele){
     todoArr.push(ele)
-    localStorage.setItem('todoArr',JSON.stringify(todoArr))
+    localStorage.setItem('todos',JSON.stringify(todoArr))
 }
-////////////////////////delete items /////////////////////
 
 // access to the delete button ... its not a fixed button
-document.addEventListener('click', check)
-function check(e){
-  if(e.target.className == 'delete') // access by class name
-  // console.log('this is the element');
-   e.target.parentNode.remove() // delete the event
+// document.addEventListener('click', check)
+// function check(e){
+//   if(e.target.className == 'delete') // access by class name
+//   // console.log('this is the element');
+//    e.target.parentNode.remove() // delete the event
+// }
+/////////////////////////////////////////////////////////////////////////////////
+// access to the delete button ... its not a fixed button
+document.addEventListener('click', deleteItem)
+///create delete function
+function deleteItem(e){
+  if(e.target.classList.contains('delete')){
+      e.target.parentElement.remove() // delete the parent
+  }
+     let value = e.target.parentElement.textContent;
+     deleteFromStorage(value) // call function to delete from local storage
 }
+// delete from local storage
+function deleteFromStorage(value){
+  let tasksToDo = JSON.parse(localStorage.getItem("todos"));
+  let index = tasksToDo.indexOf(value);
+  tasksToDo.splice(index,1);
+  localStorage.setItem("todos", JSON.stringify(tasksToDo));
+}
+
+
  // Reload code
  window.addEventListener('DOMContentLoaded', Reload)
  function Reload(){
@@ -63,14 +89,15 @@ function check(e){
         newList.innerText = ele
         todoDiv.appendChild(newList)
 
-        //RELOAD delete and edit button
+        //RELOAD  edit button
         let editBtn = document.createElement('button')
-        let delBtn = document.createElement('button')
         editBtn.innerText="Edit";
         editBtn.className="edit";
+        newList.appendChild(editBtn);
+        //RELOAD  delete button
+        let delBtn = document.createElement('button')
         delBtn.innerText="Delete";
         delBtn.className="delete";
-        newList.appendChild(editBtn);
         newList.appendChild(delBtn); 
      }) 
     
